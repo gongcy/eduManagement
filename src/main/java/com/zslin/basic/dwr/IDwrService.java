@@ -2,7 +2,7 @@ package com.zslin.basic.dwr;
 
 /**
  * Dwr处理的Service
- * @author zslin.com 20160515
+ * @author niit216.com
  *
  */
 public interface IDwrService {

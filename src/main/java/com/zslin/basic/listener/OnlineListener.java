@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSessionListener;
  * - 实现HttpSessionListener接口
  * - 该接口有session创建和session销毁两个方法
  * - 只用在这两个方法里加两个的统计即可
- * @author zslin.com 20160518
+ * @author niit216.com
  *
  */
 public class OnlineListener implements HttpSessionListener {

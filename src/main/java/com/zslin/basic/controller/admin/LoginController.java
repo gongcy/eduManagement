@@ -23,7 +23,7 @@ import com.zslin.basic.exception.SystemException;
 
 /**
  * 后台登陆的Controller
- * @author zslin.com 20160614
+ * @author niit216.com
  *
  */
 @Controller

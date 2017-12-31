@@ -13,7 +13,7 @@ import org.hibernate.annotations.Index;
 
 /**
  * 书
- * @author zslin.com 20160605
+ * @author niit216.com
  *
  */
 @Entity

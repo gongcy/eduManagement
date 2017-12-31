@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 /**
  * 系统配置
- * @author zslin.com 20160519
+ * @author niit216.com
  *
  */
 @Entity

@@ -2,7 +2,7 @@ package com.zslin.basic.idao;
 
 /**
  * Dao层公共处理接口，与Hibernate交互的公共操作
- * @author zslin.com 20160509
+ * @author niit216.com
  *
  * @param <T> 范型，指定操作类型
  */

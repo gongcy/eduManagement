@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * 防止重复提示导致数据重复录入
  * - 主要用于数据添加
  * - 创建标记Annotation
- * @author zslin.com 20160513
+ * @author niit216.com
  *
  */
 @Target(ElementType.METHOD) //指定该注释只能应用于方法名上

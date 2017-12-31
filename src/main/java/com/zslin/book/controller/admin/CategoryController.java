@@ -20,7 +20,7 @@ import com.zslin.book.model.Category;
 
 /**
  * 分类管理Controller
- * @author zslin.com 20160607
+ * @author niit216.com
  *
  */
 @Controller

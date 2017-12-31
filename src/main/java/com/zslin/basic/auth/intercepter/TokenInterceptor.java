@@ -14,7 +14,7 @@ import com.zslin.basic.tools.TokenTools;
 
 /**
  * 防止重复提交的拦截器
- * @author zslin.com 20160513
+ * @author niit216.com
  *
  */
 public class TokenInterceptor extends HandlerInterceptorAdapter {

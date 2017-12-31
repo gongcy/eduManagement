@@ -17,7 +17,7 @@ import com.zslin.basic.tools.TokenTools;
 
 /**
  * 系统初始化Controller
- * @author zslin.com 20160520
+ * @author niit216.com
  *
  */
 @Controller

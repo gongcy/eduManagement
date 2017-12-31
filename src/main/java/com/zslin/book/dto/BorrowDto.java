@@ -2,7 +2,7 @@ package com.zslin.book.dto;
 
 /**
  * 借阅DTO对象
- * @author zslin.com 20160612
+ * @author niit216.com
  *
  */
 public class BorrowDto {

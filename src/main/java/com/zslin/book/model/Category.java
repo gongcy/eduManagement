@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 /**
  * 图书分类
- * @author zslin.com 20160605
+ * @author niit216.com
  *
  */
 @Entity

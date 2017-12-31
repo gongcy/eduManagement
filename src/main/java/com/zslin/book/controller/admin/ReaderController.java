@@ -21,7 +21,7 @@ import com.zslin.book.model.Reader;
 
 /**
  * 读者管理Controller
- * @author zslin.com 20160612
+ * @author niit216.com
  *
  */
 @Controller
