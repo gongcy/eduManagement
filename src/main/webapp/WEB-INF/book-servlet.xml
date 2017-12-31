@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
-		http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 	<!-- 启动注解功能 -->
 	<mvc:annotation-driven/>
 	<!-- 配置可被直接访问的资源路径 -->
 	<mvc:resources location="/resources/" mapping="/resources/**"/>
 	<!-- 配置MVC控制器的包路径 -->
-	<context:component-scan base-package="com.zslin.*.controller"/>
+	<context:component-scan base-package="com.niit216.*.controller"/>
 	
 	<mvc:interceptors>
 		<!-- 系统拦截器，先执行系统拦截器 -->
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.zslin.basic.interceptor.SystemInterceptor"/>
+			<bean class="com.niit216.basic.interceptor.SystemInterceptor"/>
         </mvc:interceptor>
         
 		<!-- 配置后台管理的拦截器 -->
         <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>
-            <bean class="com.zslin.basic.auth.intercepter.AuthInterceptor"/>
+			<bean class="com.niit216.basic.auth.intercepter.AuthInterceptor"/>
         </mvc:interceptor>
 		
 		<!-- 配置Token拦截器，防止用户重复提交数据 -->
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.zslin.basic.auth.intercepter.TokenInterceptor"/>
+			<bean class="com.niit216.basic.auth.intercepter.TokenInterceptor"/>
         </mvc:interceptor>
 	</mvc:interceptors>
 	
@@ -42,7 +40,7 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	<!-- 指定Dwr所在路径 -->
-	<context:component-scan base-package="com.zslin.basic.dwr" />
+	<context:component-scan base-package="com.niit216.basic.dwr"/>
 
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property value="true" name="alwaysUseFullPath"></property>
@@ -52,7 +50,7 @@
 			</props>
 		</property>
 	</bean>
-	<bean id="dwrController" class="com.zslin.basic.dwr.DwrService" ></bean>
+	<bean id="dwrController" class="com.niit216.basic.dwr.DwrService"></bean>
 	<!--<dwr:annotation-config id="dwrAnnotationConfig" />-->
 
 	
@@ -65,7 +63,7 @@
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<prop key="com.zslin.basic.exception.SystemException">admin/error</prop>
+				<prop key="com.niit216.basic.exception.SystemException">admin/error</prop>
 			</props>
 		</property>
 	</bean>
