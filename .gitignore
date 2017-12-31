@@ -1,6 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 .myeclipse/
+.settings/
 src/WebRoot/WEB-INF/classes/
 src/main/webapp/resources/files/
+src/main/resources/jdbc.properties
 target/
+basic.iml
