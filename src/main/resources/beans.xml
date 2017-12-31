@@ -16,7 +16,7 @@
 	<context:annotation-config />
 	
 	<!-- 设定Spring 去哪些包中找Annotation -->
-	<context:component-scan base-package="com.niit216"/>
+	<context:component-scan base-package="com.zslin"/>
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -50,9 +50,9 @@
 		<!-- 设置Spring取那个包中查找相应的实体类 -->
 		<property name="packagesToScan">
 			<list>
-				<value>com.niit216.basic.auth.model</value>
-				<value>com.niit216.basic.model</value>
-				<value>com.niit216.book.model</value>
+				<value>com.zslin.basic.auth.model</value>
+				<value>com.zslin.basic.model</value>
+				<value>com.zslin.book.model</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -78,10 +78,10 @@
 	<!-- 以下的事务是声明在DAO中，但是通常都会在Service来处理多个业务对象逻辑的关系，注入删除，更新等，此时如果在执行了一个步骤之后抛出异常
 		就会导致数据不完整，所以事务不应该在DAO层处理，而应该在service，这也就是Spring所提供的一个非常方便的工具，声明式事务 -->
 		<aop:pointcut id="allMethods"
-					  expression="execution(* com.niit216.basic.auth.service.*.*(..))||
-						execution(* com.niit216.basic.service.*.*(..))||
-						execution(* com.niit216.book.service.*.*(..))||
-						execution(* com.niit216.auth.serivce.*.*(..))"/>
+			expression="execution(* com.zslin.basic.auth.service.*.*(..))||
+						execution(* com.zslin.basic.service.*.*(..))||
+						execution(* com.zslin.book.service.*.*(..))||
+						execution(* com.zslin.auth.serivce.*.*(..))" />
 		<!-- 通过advisor来确定具体要加入事务控制的方法 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="allMethods" />
 	</aop:config>
