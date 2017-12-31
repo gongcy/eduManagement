@@ -7,7 +7,7 @@ import com.zslin.basic.auth.model.User;
 
 /**
  * 登陆令牌对象DTO
- * @author zslin.com 20160514
+ * @author niit216.com
  *
  */
 public class AuthToken {

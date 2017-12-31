@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 
 /**
  * 借阅证管理
- * @author zslin.com 20160605
+ * @author niit216.com
  *
  */
 @Entity

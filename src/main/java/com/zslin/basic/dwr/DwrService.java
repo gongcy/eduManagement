@@ -10,7 +10,7 @@ import com.zslin.basic.auth.iservice.IUserService;
 
 /**
  * Dwr的业务实现类
- * @author zslin.com 20160515
+ * @author niit216.com
  *
  */
 @RemoteProxy(name="dwrService") //注意这里要指定业务名称

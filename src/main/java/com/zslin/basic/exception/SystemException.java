@@ -2,7 +2,7 @@ package com.zslin.basic.exception;
 
 /**
  * 系统异常
- * @author zslin.com 20160514
+ * @author niit216.com
  *
  */
 public class SystemException extends RuntimeException {

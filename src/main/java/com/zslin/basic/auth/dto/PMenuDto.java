@@ -7,7 +7,7 @@ import com.zslin.basic.auth.model.Menu;
 /**
  * 父级菜单DTO对象
  * 
- * @author zslin.com 20160514
+ * @author niit216.com
  *
  */
 public class PMenuDto implements Comparable<PMenuDto> {

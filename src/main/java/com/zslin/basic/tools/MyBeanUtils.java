@@ -11,7 +11,7 @@ import org.springframework.beans.BeansException;
 
 /**
  * 重写Spring下BeanUtils的copyProperties方法
- * @author zslin.com 20160522
+ * @author niit216.com
  *
  */
 public class MyBeanUtils extends BeanUtils {
