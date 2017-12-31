@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+	<!-- 启动注解功能 -->
+	<mvc:annotation-driven/>
+	<!-- 配置可被直接访问的资源路径 -->
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+	<!-- 配置MVC控制器的包路径 -->
+	<context:component-scan base-package="com.zslin.*.controller"/>
+	
+	<mvc:interceptors>
+		<!-- 系统拦截器，先执行系统拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.zslin.basic.interceptor.SystemInterceptor"/>
+        </mvc:interceptor>
+        
+		<!-- 配置后台管理的拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <bean class="com.zslin.basic.auth.intercepter.AuthInterceptor"/>
+        </mvc:interceptor>
+		
+		<!-- 配置Token拦截器，防止用户重复提交数据 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.zslin.basic.auth.intercepter.TokenInterceptor"/>
+        </mvc:interceptor>
+	</mvc:interceptors>
+	
+  	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  		<!-- 视图前缀为/WEB-INF/jsp，即响应的视图文件起始目录 -->
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<!-- 视图后缀为.jsp，即响应文件为.jsp文件 -->
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	<!-- 指定Dwr所在路径 -->
+	<context:component-scan base-package="com.zslin.basic.dwr" />
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property value="true" name="alwaysUseFullPath"></property>
+		<property name="mappings">
+			<props>
+				<prop key="/dwr/**/*">dwrController</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="dwrController" class="com.zslin.basic.dwr.DwrService" ></bean>
+	<!--<dwr:annotation-config id="dwrAnnotationConfig" />-->
+
+	
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="500000000"></property>
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+	
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="com.zslin.basic.exception.SystemException">admin/error</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定模板所在文件夹，所以要在WEB-INF中创建decorators文件夹 -->
+<decorators defaultdir="/WEB-INF/decorators">
+	<!-- 这里配置不引入任何模板的url路径 -->
+	<excludes>
+		<pattern>/ueditor/*</pattern> 
+		<pattern>/public*</pattern>
+		<pattern>/login*</pattern>
+	</excludes>
+    
+    <!-- 这里指定以/web开头的所有url请求都引入webModel.jsp这个模板 -->
+	<decorator name="web" page="webModel.jsp">
+		<pattern>/web*</pattern>
+		<pattern>/web/*</pattern>
+		<pattern>/web/**</pattern>
+		<pattern>/admin/borrow/add**</pattern>
+	</decorator>
+	
+	 <!-- 这里指定以/admin开头的所有url请求都引入adminModel.jsp这个模板 -->
+	<decorator name="admin" page="adminModel.jsp">
+		<pattern>/admin*</pattern>
+		<pattern>/admin/*</pattern>
+		<pattern>/admin/**</pattern>
+	</decorator>
+</decorators>
